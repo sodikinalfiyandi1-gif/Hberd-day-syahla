@@ -1,0 +1,109 @@
+body {
+    margin: 0;
+    overflow: hidden; /* Penting untuk animasi agar tidak ada scrollbar saat partikel keluar layar */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%); /* Gradasi merah muda ke oranye */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.2); /* Latar belakang semi-transparan untuk kartu */
+    padding: 40px 60px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    backdrop-filter: blur(10px); /* Efek blur di belakang kartu */
+    position: relative;
+    z-index: 10; /* Pastikan konten di atas partikel */
+}
+
+.birthday-text {
+    font-family: 'Pacifico', cursive; /* Font dari Google Fonts */
+    font-size: 4em;
+    color: #ffd700; /* Warna emas */
+    margin-bottom: 20px;
+    animation: bounce 2s infinite alternate; /* Animasi memantul */
+}
+
+.message {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+}
+
+button {
+    background-color: #ff69b4; /* Warna pink cerah */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+button:hover {
+    background-color: #ff85a2;
+    transform: translateY(-3px);
+}
+
+.hidden {
+    display: none;
+}
+
+#hiddenMessage p {
+    font-size: 1.2em;
+    margin-top: 20px;
+    color: #f8f8f8;
+}
+
+/* Animasi untuk teks "Happy Birthday" */
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-15px); }
+}
+
+/* Styling untuk partikel jatuh */
+.falling-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Penting agar tidak menghalangi interaksi mouse */
+    z-index: 1; /* Di belakang konten utama */
+}
+
+.particle {
+    position: absolute;
+    background-color: white; /* Bintang putih */
+    border-radius: 50%; /* Bentuk lingkaran */
+    opacity: 0;
+    animation: fall linear forwards; /* Animasi jatuh */
+}
+
+/* Animasi jatuh */
+@keyframes fall {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 0;
+    }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+h1 {
+    color: blue;
+}
